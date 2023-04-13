@@ -1,0 +1,267 @@
+---
+title: "primera_tarea"
+author: "ProfesorX"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r warning=TRUE, include=FALSE}
+library(modeest)
+library(DescTools)
+```
+
+#MEDIDAS DE RESUMEN
+
+Para ilustrar el cálculo de las mediadas de resumen, vamos a generar 250
+datos aleatorios, normalmente distribuidos con una media de $\mu=3$ y
+una desviación estándar de $\sigma=5$
+
+```{r variableAleatoria}
+X=rnorm(250,mean=3,sd=5)
+```
+
+##MEDIDAS DE TENDENCIA CENTRAL
+
+###MEDIA Para calcular la media, utilizamos la función mean:
+
+```{r media}
+mediaX=mean(X)
+mediaX
+```
+
+Esto nos lleva a un valor de `r mediaX`
+
+###MEDIANA La mediana la calculamos con la función median:
+
+```{r medianaX}
+medianaX=median(X)
+medianaX
+```
+
+Esto nos lleva a un valor de mediana de `r medianaX`.
+
+###MODA La moda la calculamos con la función mfv:
+
+```{r modaX}
+modaX=mfv(X)
+modaX
+```
+
+##Mínimo
+
+Se calcula el mínimo en un objeto llamado minimoX:
+
+```{r minimoX}
+minimoX=min(X)
+```
+
+##Máximo
+
+Se calcula el máximo en un objeto llamado maximoX:
+
+```{r maximoX}
+maximoX=max(X)
+```
+
+##Rango
+
+Se calcula el rango en un objeto llamado rangoX:
+
+```{r rangoX}
+rangoX=maximoX-minimoX
+```
+
+###Se imprimen los valores de mínimo, máximo y rango en la pantalla:
+
+```{r}
+minimoX
+maximoX
+rangoX
+```
+
+### Calcular el número de intervalos utilizando la regla de Sturges
+
+n \<- length(datos) k \<- ceil(log2(n) + 1)
+
+```{r intervalos}
+n=length(X)
+k=ceiling(log2(n)+1)
+k
+```
+
+###Crear histograma con el número de intervalos calculado
+
+```{r}
+hist(X,breaks = k,main = "histograma con Regla de Sturges",
+     xlab="valores",ylab ="Frecuencia")
+```
+
+###AMPLITUD DE LOS INTERVALOS (h): La amplitud de los intervalos se
+puede calcular dividiendo el rango (r) entre el número de intervalos
+(k):
+
+```{r}
+h=rangoX/k
+h
+```
+
+### Definir intervalos
+
+```{r}
+intervalos=seq(minimoX,maximoX, by=h)
+intervalos
+```
+
+### Crear tabla de frecuencia
+
+```{r}
+frecuenciasX=cut(X,breaks = intervalos, include.lowest = TRUE, right = FALSE)
+frecuenciasX
+```
+
+### Contar frecuencias por intervalo
+
+```{r}
+Tabla_frecuenciaX=table(frecuenciasX)
+Tabla_frecuenciaX
+```
+
+###Calcular la frecuencia acumulada
+
+```{r}
+frecuencia_acumuladaX= cumsum(Tabla_frecuenciaX)
+frecuencia_acumuladaX
+```
+
+### Calcular marcas de clase
+
+```{r}
+marcas_claseX=((intervalos+(intervalos+h))/2)
+marcas_claseX
+```
+
+# Mostrar tabla de frecuencia por intervalos
+```{r echo=FALSE}
+cat("Intervalo\t\tMarca de Clase\tFrecuencia\tFrecuencia Acumulada\n")     
+  for (i in 1:length(Tabla_frecuenciaX)){
+   cat(sprintf("%.2f - %.2f\t\t%.2f\t\t%d\t\t%d\n", intervalos[i], intervalos[i] + h, marcas_claseX[i], Tabla_frecuenciaX[i], frecuencia_acumuladaX[i]))
+}
+```
+
+
+###cuartiles
+
+```{r}
+intervalos <- seq(minimoX, maximoX, by = h)
+limites_inferiores= intervalos[-length(intervalos)]
+limites_superiores= intervalos[-1]
+letras <- LETTERS[1:length(limites_inferiores)]
+variable_categorica <- cut(X, breaks = intervalos, right = FALSE, labels = letras)
+
+for (i in 1:length(limites_inferiores)) {
+  nombre_inferior <- paste("limite_inferior", letras[i], sep = "_")
+  assign(nombre_inferior, limites_inferiores[i])
+  
+  nombre_superior <- paste("limite_superior", letras[i], sep = "_")
+  assign(nombre_superior, limites_superiores[i])
+}
+```
+
+```{r}
+#Posición de los cuartiles
+# Calcular la posición del primer cuartil
+n=250
+k1=1
+Q1=(k1*n/4)
+Q1
+# [1] 25
+
+# Calcular la posición del segundo cuartil (mediana)
+k2=2
+Q2=(k2*n/4)
+Q2
+# [2] 50
+
+# Calcular la posición del tercer cuartil
+k3=3
+Q3=(k3*n/4)
+Q3
+# [3] 75
+```
+
+### Calcular el rango intercuartílico (RI)
+```{r}
+rango_intercuartílico=Q3-Q1
+rango_intercuartílico
+```
+
+```{r}
+# Calcular la varianza
+varianza= var(X)
+
+# Calcular la desviación estándar
+desviaciónestándar=sd(X)
+
+# Calcular la media muestral
+media1 <- mean(X)
+
+#Calcular la desviación media absoluta
+dmaR=mad(X)
+
+varianza
+desviaciónestándar
+media1
+dmaR
+```
+
+##MEDIDAS DE FORMA
+```{r}
+library(e1071)
+
+```
+
+```{r}
+#Calculando la asimetría
+asimetría=skewness(X)
+
+# Calcular la curtosis
+curtosis=kurtosis(X)
+
+#Calculando los grados de libertad
+
+grados_de_libertad=n-1
+
+#Calculando los valores estándar Zi
+
+zi= qnorm(0.975)
+
+
+
+asimetría
+curtosis
+grados_de_libertad
+zi
+```
+
+```{r}
+proporcion <- sum(abs(X - medianaX) <= 2*desviaciónestándar) / length(X)
+k3= 2 
+# número de desviaciones estándar
+limite_inferior= 1 - 1/k^2
+if (proporcion >= limite_inferior) {
+  print("El teorema de Chebyshev se cumple para k3 = 2.")
+} else {
+  print("El teorema de Chebyshev no se cumple para k3 = 2.")
+}
+```
+
+

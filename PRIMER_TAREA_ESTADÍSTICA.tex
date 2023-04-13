@@ -1,0 +1,410 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={primera\_tarea},
+  pdfauthor={ProfesorX},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{primera\_tarea}
+\author{ProfesorX}
+\date{2023-04-04}
+
+\begin{document}
+\maketitle
+
+\#MEDIDAS DE RESUMEN
+
+Para ilustrar el cálculo de las mediadas de resumen, vamos a generar 250
+datos aleatorios, normalmente distribuidos con una media de \(\mu=3\) y
+una desviación estándar de \(\sigma=5\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X}\OtherTok{=}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{250}\NormalTok{,}\AttributeTok{mean=}\DecValTok{3}\NormalTok{,}\AttributeTok{sd=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#MEDIDAS DE TENDENCIA CENTRAL
+
+\#\#\#MEDIA Para calcular la media, utilizamos la función mean:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mediaX}\OtherTok{=}\FunctionTok{mean}\NormalTok{(X)}
+\NormalTok{mediaX}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.275014
+\end{verbatim}
+
+Esto nos lleva a un valor de 3.2750135
+
+\#\#\#MEDIANA La mediana la calculamos con la función median:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{medianaX}\OtherTok{=}\FunctionTok{median}\NormalTok{(X)}
+\NormalTok{medianaX}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.467946
+\end{verbatim}
+
+Esto nos lleva a un valor de mediana de 3.4679462.
+
+\#\#\#MODA La moda la calculamos con la función mfv:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modaX}\OtherTok{=}\FunctionTok{mfv}\NormalTok{(X)}
+\NormalTok{modaX}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] -8.06132497 -7.54172326 -6.90694680 -6.82293483 -6.73451680 -6.66210713
+##   [7] -6.37276419 -6.27057225 -5.35900022 -5.10106845 -4.87972933 -4.57186056
+##  [13] -4.53605415 -4.31647271 -4.24419336 -4.19695467 -3.83716900 -3.67501727
+##  [19] -3.55253480 -3.44887840 -3.44395453 -3.26060465 -3.25845196 -2.89534146
+##  [25] -2.82243565 -2.75661279 -2.65684620 -2.64363725 -2.59639860 -2.53322363
+##  [31] -2.41769269 -2.26361765 -2.05691835 -1.86667665 -1.66798718 -1.66653534
+##  [37] -1.66119818 -1.64975182 -1.62735442 -1.57988784 -1.56932588 -1.51586031
+##  [43] -1.50960875 -1.47920566 -1.45997523 -1.43883205 -1.27981731 -1.22939798
+##  [49] -1.22695559 -1.18344946 -1.12619544 -0.97718605 -0.92888273 -0.74314879
+##  [55] -0.72324291 -0.70309529 -0.56168486 -0.53220851 -0.41920765 -0.29989530
+##  [61] -0.25960954 -0.25713883 -0.22230373 -0.20544316 -0.03402652  0.02484180
+##  [67]  0.04151055  0.04922690  0.05095999  0.18102182  0.21734357  0.26605888
+##  [73]  0.37178686  0.43846713  0.46027668  0.54163329  0.58730773  0.58819203
+##  [79]  0.61863272  0.62933746  0.64502606  0.74030609  0.76091783  0.88038984
+##  [85]  0.90641783  0.96945721  1.01133175  1.04483023  1.09907146  1.11528458
+##  [91]  1.16360493  1.22313851  1.22911252  1.52003752  1.52352526  1.63920970
+##  [97]  1.68403796  1.72289309  2.09798360  2.14672046  2.16786480  2.19657152
+## [103]  2.21796760  2.26954114  2.28307714  2.33117917  2.35140664  2.41168484
+## [109]  2.47729092  2.52615861  2.53023724  2.62676549  2.69448637  2.77221460
+## [115]  2.84156560  2.87835743  2.99501045  3.00759550  3.03726166  3.06603118
+## [121]  3.19387956  3.20751581  3.24948570  3.42138335  3.43129566  3.50459677
+## [127]  3.52153668  3.55443013  3.56496053  3.59579464  3.63074009  3.66871735
+## [133]  3.78018107  3.82979304  3.86422128  3.86906238  3.93998090  4.01671206
+## [139]  4.01774093  4.13224097  4.18718773  4.20919878  4.23944646  4.29867043
+## [145]  4.36797068  4.39531949  4.43367336  4.46842929  4.48189778  4.49573272
+## [151]  4.53431943  4.53615386  4.57020586  4.64710255  4.65126791  4.65346928
+## [157]  4.78703034  4.87423078  4.91318008  4.92544952  4.94874572  4.95074392
+## [163]  4.97026812  5.08167802  5.13243484  5.30783181  5.33380688  5.37844027
+## [169]  5.37986385  5.39978707  5.41480352  5.43345963  5.46595270  5.49712865
+## [175]  5.51675257  5.52231758  5.56668551  5.61626609  5.65623890  5.72341983
+## [181]  5.73133920  5.90426688  5.95394533  6.03252759  6.08447915  6.16869185
+## [187]  6.22525821  6.24533270  6.35950348  6.36688454  6.68098139  6.75367524
+## [193]  6.86210694  6.86583011  6.89062175  7.00973470  7.01262914  7.05269679
+## [199]  7.07545022  7.09860690  7.38006868  7.54886298  7.56815492  7.60492708
+## [205]  7.61490017  7.70208559  7.72547505  7.83527922  7.95362425  7.98163990
+## [211]  8.10791174  8.14087221  8.58325072  8.58690472  8.59647436  8.95567379
+## [217]  9.12754484  9.14448532  9.16223829  9.24071995  9.24775238  9.32710680
+## [223]  9.43226575  9.58606143  9.61511321  9.69186262  9.70136432 10.03254753
+## [229] 10.12075807 10.19020757 10.27843615 10.63643369 10.70291250 11.03292517
+## [235] 11.15745505 11.22980830 11.40723105 11.43901585 11.53383407 11.56529815
+## [241] 11.99390198 12.34181247 12.61251958 12.65861916 13.13842296 13.29134487
+## [247] 13.63998456 14.00343346 14.27050069 21.40845628
+\end{verbatim}
+
+\#\#Mínimo
+
+Se calcula el mínimo en un objeto llamado minimoX:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{minimoX}\OtherTok{=}\FunctionTok{min}\NormalTok{(X)}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#Máximo
+
+Se calcula el máximo en un objeto llamado maximoX:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maximoX}\OtherTok{=}\FunctionTok{max}\NormalTok{(X)}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#Rango
+
+Se calcula el rango en un objeto llamado rangoX:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rangoX}\OtherTok{=}\NormalTok{maximoX}\SpecialCharTok{{-}}\NormalTok{minimoX}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#\#Se imprimen los valores de mínimo, máximo y rango en la pantalla:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{minimoX}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -8.061325
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maximoX}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 21.40846
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rangoX}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 29.46978
+\end{verbatim}
+
+\hypertarget{calcular-el-nuxfamero-de-intervalos-utilizando-la-regla-de-sturges}{%
+\subsubsection{Calcular el número de intervalos utilizando la regla de
+Sturges}\label{calcular-el-nuxfamero-de-intervalos-utilizando-la-regla-de-sturges}}
+
+n \textless- length(datos) k \textless- ceil(log2(n) + 1)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n}\OtherTok{=}\FunctionTok{length}\NormalTok{(X)}
+\NormalTok{k}\OtherTok{=}\FunctionTok{ceiling}\NormalTok{(}\FunctionTok{log2}\NormalTok{(n)}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}
+\NormalTok{k}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9
+\end{verbatim}
+
+\#\#\#Crear histograma con el número de intervalos calculado
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(X,}\AttributeTok{breaks =}\NormalTok{ k,}\AttributeTok{main =} \StringTok{"histograma con Regla de Sturges"}\NormalTok{,}
+     \AttributeTok{xlab=}\StringTok{"valores"}\NormalTok{,}\AttributeTok{ylab =}\StringTok{"Frecuencia"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PRIMER_TAREA_ESTADÍSTICA_files/figure-latex/unnamed-chunk-3-1.pdf}
+\#\#\#AMPLITUD DE LOS INTERVALOS (h): La amplitud de los intervalos se
+puede calcular dividiendo el rango (r) entre el número de intervalos
+(k):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{h}\OtherTok{=}\NormalTok{rangoX}\SpecialCharTok{/}\NormalTok{k}
+\NormalTok{h}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.27442
+\end{verbatim}
+
+\hypertarget{definir-intervalos}{%
+\subsubsection{Definir intervalos}\label{definir-intervalos}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{intervalos}\OtherTok{=}\FunctionTok{seq}\NormalTok{(minimoX,maximoX, }\AttributeTok{by=}\NormalTok{h)}
+\NormalTok{intervalos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] -8.061325 -4.786905 -1.512485  1.761935  5.036356  8.310776 11.585196
+##  [8] 14.859616 18.134036 21.408456
+\end{verbatim}
+
+\hypertarget{crear-tabla-de-frecuencia}{%
+\subsubsection{Crear tabla de
+frecuencia}\label{crear-tabla-de-frecuencia}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frecuenciasX}\OtherTok{=}\FunctionTok{cut}\NormalTok{(X,}\AttributeTok{breaks =}\NormalTok{ intervalos, }\AttributeTok{include.lowest =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{right =} \ConstantTok{FALSE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{contar-frecuencias-por-intervalo}{%
+\subsubsection{Contar frecuencias por
+intervalo}\label{contar-frecuencias-por-intervalo}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Tabla\_frecuenciaX}\OtherTok{=}\FunctionTok{table}\NormalTok{(frecuenciasX)}
+\NormalTok{Tabla\_frecuenciaX}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## frecuenciasX
+## [-8.06,-4.79) [-4.79,-1.51)  [-1.51,1.76)   [1.76,5.04)   [5.04,8.31) 
+##            11            31            56            65            49 
+##   [8.31,11.6)   [11.6,14.9)   [14.9,18.1)   [18.1,21.4] 
+##            28             9             0             1
+\end{verbatim}
+
+\hypertarget{calcular-marcas-de-clase}{%
+\subsubsection{Calcular marcas de
+clase}\label{calcular-marcas-de-clase}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{marcas\_claseX}\OtherTok{=}\NormalTok{(intervalos}\SpecialCharTok{+}\NormalTok{h)}\SpecialCharTok{/}\DecValTok{2}
+\NormalTok{marcas\_claseX}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] -2.3934524 -0.7562423  0.8809677  2.5181778  4.1553879  5.7925979
+##  [7]  7.4298080  9.0670181 10.7042281 12.3414382
+\end{verbatim}
+
+\hypertarget{mostrar-tabla-de-frecuencia-por-intervalos}{%
+\section{Mostrar tabla de frecuencia por
+intervalos}\label{mostrar-tabla-de-frecuencia-por-intervalos}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"intervalo}\SpecialCharTok{\textbackslash{}t}\StringTok{Frecuencia}\SpecialCharTok{\textbackslash{}t}\StringTok{Marca de clase}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## intervalo    Frecuencia  Marca de clase
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(Tabla\_frecuenciaX))\{}
+  \FunctionTok{cat}\NormalTok{(}\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.2f {-} \%.2f}\SpecialCharTok{\textbackslash{}t}\StringTok{\%d}\SpecialCharTok{\textbackslash{}t\textbackslash{}t}\StringTok{\%.2f}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, intervalos[i], intervalos[i] }\SpecialCharTok{+}\NormalTok{ h, Tabla\_frecuenciaX[i], marcas\_claseX[i]))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -8.06 - -4.79    11      -2.39
+## -4.79 - -1.51    31      -0.76
+## -1.51 - 1.76 56      0.88
+## 1.76 - 5.04  65      2.52
+## 5.04 - 8.31  49      4.16
+## 8.31 - 11.59 28      5.79
+## 11.59 - 14.86    9       7.43
+## 14.86 - 18.13    0       9.07
+## 18.13 - 21.41    1       10.70
+\end{verbatim}
+
+\end{document}
